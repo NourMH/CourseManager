@@ -19,7 +19,7 @@ namespace Interview.CourseManager.Dtos
         public int StaduimId { get; set; }
         public int AgeFrom { get; set; }
         public int AgeTo { get; set; }
-        public int Gender { get; set; }
+        public int Gender { get; set; }//0=male-1=female
         public double Cost { get; set; }
         public double Capacity { get; set; }
         public int Status { get; set; }

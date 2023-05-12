@@ -50,19 +50,18 @@ namespace Interview.CourseManager.Services.Implementations
                     response.Data = reservations;
                     return response;
                 }
-
-                db.Courses.Add(new Course()
+                var course = new Course()
                 {
                     Name = model.Name,
                     StaduimId = model.StaduimId,
                     CreationDate = DateTime.Now,
                     AcademyId = model.AcademyId,
-                    AgeFrom= model.AgeFrom,
-                    AgeTo= model.AgeTo,
-                    Capacity= model.Capacity,
-                    Cost= model.Cost,
-                    Gender= model.Gender,
-                    
+                    AgeFrom = model.AgeFrom,
+                    AgeTo = model.AgeTo,
+                    Capacity = model.Capacity,
+                    Cost = model.Cost,
+                    Gender = model.Gender,
+
                     CourseBranches = model.CourseBranches.Select(n => new CourseBranch
                     {
                         ClubBranchId = n
@@ -70,16 +69,19 @@ namespace Interview.CourseManager.Services.Implementations
                     CourseReservations = reservations.Select(n => new CourseReservation
                     {
                         Date = n.Date,
-
+                        
                     }).ToList()
-                });
+                };
+                db.Courses.Add(course);
                 db.SaveChanges();
                 response.status = true;
+                response.Data = reservations;
+                response.Massage = "Sucssed saving ";
                 return response;
             }
             catch (Exception e)
             {
-                response.status = true;
+                response.status = false;
                 response.Massage = e.Message;
                 return response;
             }
@@ -138,5 +140,10 @@ namespace Interview.CourseManager.Services.Implementations
             }
             return reservations;
         }
+
+
+
+
+
     }
 }

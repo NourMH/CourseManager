@@ -6,6 +6,6 @@ namespace Interview.CourseManager.Dtos
     {
         [Range(minimum:0,maximum:6, ErrorMessage ="Invalid Day")]
         public int Day { get; set; }
-    //    public DateTime Time { get; set; }
+        public string Time { get; set; }
     }
 }

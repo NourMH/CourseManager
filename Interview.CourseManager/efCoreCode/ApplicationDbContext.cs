@@ -18,6 +18,8 @@ namespace Interview.CourseManager.efCoreCode
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseReservation> CourseReservations { get; set; }
         public DbSet<Staduim> Staduims { get; set; }
+        public DbSet<CourseBranch> CourseBranchs { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

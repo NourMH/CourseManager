@@ -27,8 +27,8 @@ namespace Interview.CourseManager.Controllers
                     
                     Response<List<CourseReservationDto>> response = CourseService.CreateCourse(model);
                     if (response.status == false)
-                        return BadRequest(response.Data);
-                    return Ok();
+                        return Ok(response);
+                    return Ok(response);
                 }
                 return BadRequest(new { errors = ModelState.Select(m => m.Value.Errors.Select(e => e.ErrorMessage)).Where(p => p.Any()) });
 
